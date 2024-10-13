@@ -1,0 +1,25 @@
+<div>
+  <% if (locals.fileInfo) { %>
+  <div>
+    <% if(fileInfo.folderId){ %>
+    <a href="/folder/<%= fileInfo.folderId %>"> Go Back </a>
+    <% } else {%>
+    <a href="/library"> My Library </a>
+    <% } %>
+  </div>
+  <% if(fileInfo.fileName && fileInfo.createdAt && fileInfo.filePath) { %>
+  <div>
+    <p>File Name : <%= fileInfo.fileName %></p>
+    <p>createdAt : <%= fileInfo.formattedCreatedAt %></p>
+    <p>updatedAt : <%= fileInfo. formattedUpdatedAt %></p>
+    <p>File Size : <%= fileInfo.size %> KB</p>
+  </div>
+  <% } %>
+  <button
+    id="edit-btn"
+    onclick="downloadFile('<%= fileInfo.fileName %>','<%= fileInfo.filePath %>')"
+  >
+    Download File
+  </button>
+  <% } %>
+</div>

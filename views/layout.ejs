@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="main">
+    <%- include(headerNav) %>
+    <div class="content body-class"><%- include(body) %></div>
+    <%- include('footer.ejs') %>
+    <!-- Folder Modal -->
+    <div id="folderModal" class="modalStyle clsHidden">
+      <div class="modalDiv">
+        <div class="modalMainDiv">
+          <div class="modalHeader">
+            <h3 class="modalFontStyle" id="folder-modal-title">
+              Create Folder
+            </h3>
+            <button onclick="closeModal('folderModal')">✖</button>
+          </div>
+          <div class="modalForm">
+            <form id="folder-form" method="POST">
+              <label for="folderName" class="modalLable">Folder Name</label>
+              <input
+                type="text"
+                name="folderName"
+                id="folderName"
+                class="modalInput"
+                value="new folder"
+                required
+              />
+              <div class="mt-4 flex justify-end">
+                <button type="submit" class="modalSubmitBtn">Create</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- File Modal -->
+    <div id="fileModal" class="modalStyle clsHidden">
+      <div class="modalDiv">
+        <div class="modalMainDiv">
+          <div class="modalHeader">
+            <h3 class="modalFontStyle" id="file-modal-title">Upload File</h3>
+            <button onclick="closeModal('fileModal')">✖</button>
+          </div>
+          <div class="modalForm">
+            <form
+              id="file-form"
+              onsubmit="return false;"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <div id="errorMessages"></div>
+              <!-- Error message placeholder -->
+              <input
+                type="file"
+                name="avatar"
+                id="fileInput"
+                class="modalInput"
+                required
+              />
+              <div class="mt-4 flex justify-end">
+                <button type="submit" class="modalSubmitBtn">Upload</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- edit Modal -->
+    <div id="edit-modal" class="modalStyle clsHidden edit-modal__main">
+      <div class="modalDiv edit-modal__main-div">
+        <div class="modalMainDiv edit-modal__main-div-cover">
+          <div class="modalHeader edit-modal__header">
+            <h3 class="modalFontStyle edit-modal__h3" id="edit-modal-title">Edit</h3>
+            <button class="edit-modal--close-btn" onclick="closeModal('edit-modal')">✖</button>
+          </div>
+          <div class="modalForm edit-modal__form">
+            <form id="edit-form" method="POST">
+              <label for="editName" class="modalLable">Name</label>
+              <input
+                type="text"
+                name="editName"
+                id="editName"
+                class="modalInput"
+                required
+              />
+              <div class="modal-close__div">
+                <button type="submit" class="modalSubmitBtn modal-close__div--btn-ok">Edit</button>
+                <button class="modal-close__div--btn-notOk">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document
+        .getElementById('file-form')
+        .addEventListener('submit', async function (event) {
+          const currentPath = window.location.pathname; // Path only
+          event.preventDefault(); // Prevent the form from submitting and reloading the page
+
+          const form = event.target;
+          const formData = new FormData(form);
+          // Dynamically retrieve the action attribute
+          const actionUrl = form.getAttribute('action');
+          console.log(formData);
+          try {
+            const response = await fetch(actionUrl, {
+              method: 'POST',
+              body: formData,
+            });
+
+            if (!response.ok) {
+              const errorData = await response.json();
+              displayErrorMessages(errorData.errors); // Display validation errors
+            } else {
+              closeModal('fileModal');
+              // const successMessage = await response.json();
+              // alert('File uploaded successfully!'); // Or handle success in another way
+              window.location.href = currentPath; // Redirect manually
+            }
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        });
+
+      // drop down toggle logic
+      document.querySelectorAll('.dropdownMenuIconButton').forEach((button) => {
+        button.addEventListener('click', function (event) {
+          event.stopPropagation(); // prevent this click event from closing the dropdown itself
+
+          // close all the other open dropdowns
+
+          document
+            .querySelectorAll('.dropdownMenuIconButton')
+            .forEach((btn) => {
+              const menu = btn.nextElementSibling;
+              if (
+                menu &&
+                !menu.classList.contains('clsHidden') &&
+                menu !== button.nextElementSibling
+              ) {
+                menu.classList.add('clsHidden');
+              }
+            });
+
+          // toggle the clicked dropdown
+          const menu = button.nextElementSibling;
+          if (menu) {
+            menu.classList.toggle('clsHidden');
+          }
+        });
+      });
+      // stop the dropdown menuitems click event from propagating to parent elements
+      document.querySelectorAll('.menu-items').forEach((item) => {
+        item.addEventListener('click', function (event) {
+          event.stopPropagation();
+
+          // close the parent dropdown
+          const menu = item.closest('.dropMenu');
+          if (menu) {
+            menu.classList.toggle('clsHidden');
+          }
+        });
+      });
+
+      // close dropdowns on clicking outside
+      document.addEventListener('click', function (event) {
+        document
+          .querySelectorAll('.dropdownMenuIconButton')
+          .forEach((button) => {
+            const menu = button.nextElementSibling;
+            if (
+              menu &&
+              !menu.classList.contains('clsHidden') &&
+              !button.contains(event.target)
+            ) {
+              menu.classList.add('clsHidden');
+            }
+          });
+      });
+    });
+
+    function displayErrorMessages(errors) {
+      const errorDiv = document.getElementById('errorMessages');
+      errorDiv.innerHTML = ''; // Clear any existing errors
+      errors.forEach((error) => {
+        const p = document.createElement('p');
+        p.textContent = error.msg; // Assuming the error object has a 'msg' field
+        p.style.color = 'red';
+        errorDiv.appendChild(p);
+      });
+    }
+
+    function openFolderModal(modalId, type, id) {
+      const modal = document.getElementById('folderModal');
+      const form = document.getElementById('folder-form');
+      const modalTitle = document.getElementById('folder-modal-title');
+      if (type == 'library') {
+        modalTitle.textContent = ' Create Folder in My library ';
+        form.action = `/library/create-folder/${id}`;
+      } else {
+        modalTitle.textContent = `Create Folder in ${type}`;
+        form.action = `/folder/create-folder/${id}`;
+      }
+      modal.classList.remove('clsHidden');
+    }
+    function openFileModal(modalId, type, id) {
+      const modal = document.getElementById('fileModal');
+      const form = document.getElementById('file-form');
+      const modalTitle = document.getElementById('file-modal-title');
+      if (type == 'library') {
+        modalTitle.textContent = 'Upload File to My library ';
+        form.action = `/library/upload-file/${id}`;
+      } else {
+        modalTitle.textContent = `Upload File to  ${type}`;
+        form.action = `/folder/upload-file/${id}`;
+      }
+      modal.classList.remove('clsHidden');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('clsHidden');
+    }
+    function openEditModal(type, id, name) {
+      console.log('called me');
+      const modal = document.getElementById('edit-modal');
+      const form = document.getElementById('edit-form');
+      const nameInput = document.getElementById('editName');
+      const modalTitle = document.getElementById('edit-modal-title');
+
+      // Set the form's action URL based on the type (folder or file)
+      if (type === 'folder') {
+        form.action = `/folder/edit/${id}`;
+        modalTitle.textContent = 'Edit Folder';
+      } else if (type === 'file') {
+        form.action = `/file/edit/${id}`;
+        modalTitle.textContent = 'Edit File';
+      }
+
+      nameInput.value = name;
+
+      // Show the modal
+      modal.classList.remove('clsHidden');
+    }
+
+    async function sendDeleteReq(type, id, path) {
+      const currentPath = window.location.pathname; // Path only
+      console.log('got the req');
+      let url = '';
+      if (type === 'folder') {
+        url = `/folder/delete/${id}`;
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id }),
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          console.log('Success:');
+          console.log('got the req success');
+          window.location.href = currentPath; // Redirect manually
+        } catch (error) {
+          console.log('got the req erre');
+          console.error('Error:', error);
+          window.location.href = currentPath; // Redirect manually
+        }
+      } else {
+        url = `/file/delete/${id}`;
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id, path }),
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          console.log('Success:');
+          console.log('got the req success');
+          window.location.href = currentPath; // Redirect manually
+        } catch (error) {
+          console.log('got the req erre');
+          console.error('Error:', error);
+          window.location.href = currentPath; // Redirect manually
+        }
+      }
+    }
+
+    async function downloadFile(fileName, path) {
+      const currentPath = window.location.pathname; // Path only
+      console.log('got the req');
+      const url = '/file/download';
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ fileName, path }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        // Get the file as a Blob
+        const fileBlob = await response.blob();
+
+        // Create a blob URL in the client-side
+        const blobUrl = URL.createObjectURL(fileBlob);
+
+        // Create a link element to trigger the download
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName; // This will set the downloaded file's name
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // Clean up the blob URL after download
+        URL.revokeObjectURL(blobUrl);
+
+        console.log('Download successful!');
+      } catch (error) {
+        console.error('Error downloading the file:', error);
+      }
+    }
+  </script>
+</html>

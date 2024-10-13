@@ -1,0 +1,7 @@
+<% if (locals.errors) { %>
+<ul class="alert">
+  <% errors.map(function(error) { %>
+  <li class=""><%= error.msg %></li>
+  <% }); %>
+</ul>
+<% } %>

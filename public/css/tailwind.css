@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  @apply font-sans
+}
+
+/* <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">We invest in the <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">world’s potential</span></h1> */
+.dropMenu {
+  @apply absolute  right-0 z-10 mt-2 w-48 bg-white origin-top-right rounded-lg shadow-lg;
+}
+.alert{
+  @apply border-4 rounded-md border-red-900 p-2 bg-red-300 text-lg font-medium text-red-800
+}
+.edit-btn {
+  @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
+}
+.modalStyle {
+  @apply fixed z-10 inset-0 overflow-y-auto bg-neutral-800/50;
+}
+.modalDiv {
+  @apply flex items-center justify-center min-h-screen px-4;
+}
+.modalMainDiv {
+  @apply bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full;
+}
+.modalHeader {
+  @apply bg-gray-800 text-white px-4 py-3 flex justify-between;
+}
+.modalFontStyle {
+  @apply text-lg leading-6 font-medium;
+}
+.modalForm {
+  @apply px-4 py-3;
+}
+.modalInput {
+  @apply mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md;
+}
+.modalLable {
+  @apply block text-sm font-medium text-gray-700;
+}
+.modalSubmitBtn {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+/* button{
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+} */
+.clsHidden {
+  @apply hidden;
+}
+.td-relative {
+  @apply relative;
+}
+.td-div {
+  @apply relative flex;
+}
+
+.dropdownMenuIconButton {
+  @apply w-full h-full items-center justify-center rounded-md ;
+}
+.menu-items {
+  @apply block w-full px-4 py-2 text-lg text-gray-700 hover:bg-gray-100;
+}
+.header-class{
+  @apply bg-customRed p-4 text-readableWhite flex justify-between items-center px-8 py-8
+}
+
+.body-class{
+  @apply flex-grow flex items-center justify-center bg-gray-50
+}
+
+.footer-class{
+  @apply bg-customBlack text-white text-center flex justify-between  p-7 text-lg 
+}
+.footer-class a{
+  @apply  font-semibold text-white  text-xl hover:text-customRed
+}
+
+.main{
+  @apply min-h-screen flex flex-col
+}
+.card-a{
+  @apply block max-w-sm p-6 bg-readableWhite border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex flex-col justify-center   items-center
+}
+.card-h5{
+  @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white 
+}
+.card-p{
+  @apply font-normal text-gray-700 dark:text-gray-400 text-xl text-center
+}
+.cards-div{
+  @apply flex flex-wrap justify-center gap-5
+}
+.logo-cls{
+ @apply  text-xl  leading-none tracking-tight text-white md:text-3xl lg:text-4xl dark:text-white  cursor-pointer
+}
+/* underline-offset-3  underline  decoration-8 decoration-white*/
+.logo-span{
+  @apply font-semibold
+}
+.nav-div{
+  @apply text-2xl  dark:text-white
+}
+.nav-flex{
+  @apply flex gap-4
+}
+
+.icon{
+  @apply flex items-center gap-2 
+}
+a.icon {
+  @apply flex items-center gap-2 hover:underline underline-offset-8  decoration-white decoration-4
+}
+.home-heading{
+  @apply mb-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white
+}
+.home-heading span{
+  @apply text-gray-500
+}
+.home-about{
+  @apply mb-6 text-xl font-normal text-black lg:text-2xl sm:px-16  dark:text-gray-400  max-w-5xl text-center lg:leading-relaxed
+}
+/* max-w-[800px] */
+.home-link{
+  @apply flex items-center gap-2 px-5 py-3 text-xl font-semibold text-center text-white bg-customRed rounded-lg hover:bg-darkPurple transition duration-300
+}
+.home-div{
+  @apply flex flex-col justify-center items-center gap-2.5 m-4
+}
+.home-main{
+  @apply flex flex-col justify-center p-4  gap-5
+}
+.home-link span{
+  @apply flex 
+}
+
+/* login styles */
+.login-page--div{
+  @apply flex flex-col justify-center  items-center
+}
+.login-div--header{
+  @apply text-4xl font-extrabold dark:text-white
+}
+.login-main{
+  @apply flex items-center justify-center
+}
+.login-div{
+  @apply w-screen flex justify-center items-center dark:bg-gray-900
+}
+.login-div__grid{
+  @apply grid gap-8
+}
+.login-div__in{
+  @apply bg-gradient-to-r from-blue-500 to-purple-500 rounded-[26px] m-4
+}
+.login-div__final{
+  @apply flex flex-col items-center gap-3 justify-center border-[20px] border-transparent rounded-[20px] dark:bg-gray-900 bg-white shadow-lg xl:p-10 2xl:p-10 lg:p-10 md:p-10 sm:p-2 m-2
+}
+.login-div__h1{
+  @apply pt-3 pb-5 font-bold dark:text-gray-400 text-5xl text-center cursor-default
+}
+.login-div__form{
+  @apply space-y-4 gap-3
+}
+.login-div__form--label{
+  @apply mb-2  dark:text-gray-400 text-xl
+
+}
+.login-text{
+  @apply text-lg ms-2 font-semibold text-gray-500 dark:text-gray-400
+}
+.login-div__form--input{
+  @apply border p-3 dark:bg-indigo-700 dark:text-gray-300  dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full
+}
+.login-div__form--a{
+  @apply text-blue-400 transition-all duration-100 ease-in-out
+}
+/* .login-div__form--a span{
+  @apply bg-left-bottom bg-gradient-to-r text-sm from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-500 ease-out
+} */
+.login-div__form--btn{
+  @apply bg-gradient-to-r px-4 text-lg dark:text-gray-300 from-blue-500 to-purple-500 shadow-lg p-2 text-white rounded-lg w-full hover:scale-105 hover:from-purple-500 hover:to-blue-500 transition duration-300 ease-in-out
+} 
+.login-div__signup--div{
+  @apply flex flex-col mt-4 items-center justify-center text-lg
+}
+.login-div__signup--h3{
+  @apply dark:text-gray-300
+}
+.login-div__signup--a{
+  @apply text-blue-400 transition-all duration-100 ease-in-out
+}
+.login-div__signup--a span{
+  @apply bg-left-bottom bg-gradient-to-r text-lg from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-500 ease-out
+}
+
+/* libray layout styles */
+/* Ensure the library layout takes at least 80% width */
+.library-layout {
+  @apply w-full my-5 py-3.5 flex flex-col gap-5 mx-6 h-full px-4 self-start;
+}
+
+/* Library header styling */
+.library-header {
+  @apply flex justify-between items-center mb-4;
+}
+
+.library-title {
+  @apply text-3xl font-bold text-gray-800;
+}
+
+.library-buttons {
+  @apply flex text-lg space-x-2;
+}
+
+.library-btn {
+  @apply bg-transparent text-purple-700 font-semibold hover:text-white py-2 px-4 border border-purple-700 hover:border-transparent rounded hover:bg-darkPurple transition duration-300;
+}
+
+/* Table styles */
+.library-table {
+  @apply w-full  shadow-md border border-gray-300 rounded-lg border-spacing-0;
+  border-radius: 12px; /* or any radius value you prefer */
+  border-collapse: separate; /* Use this to allow border-radius */
+}
+
+.library-table-header {
+  @apply text-xl  bg-gray-200 font-medium ;
+}
+
+.library-table-header th {
+  @apply px-4 py-3 text-left text-gray-600 font-medium ;
+}
+
+.library-row {
+  @apply text-xl hover:bg-gray-100 cursor-pointer  ;
+}
+
+.library-row td {
+  @apply border-t border-gray-200 px-5 py-5 text-gray-700;
+}
+
+.library-link {
+  @apply  text-purple-700 inline-flex  text-xl  hover:underline decoration-purple-700 decoration-solid underline-offset-2 ;
+}
+
+.lib-link--color{
+  @apply text-purple-700
+}
+
+.lib-icon{
+  @apply flex items-center gap-2 
+}

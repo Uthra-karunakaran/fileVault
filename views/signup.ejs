@@ -1,0 +1,86 @@
+<div class="login-main">
+  <div class="login-div">
+  <div class="login-div__grid">
+    <div
+      id="back-div"
+      class="login-div__in"
+    >
+      <div
+        class="login-div__final"
+      >
+        <h1 class="login-div__h1">
+          Sign Up
+        </h1>
+        <form action="/sign-up" method="POST" class="login-div__form">
+          <%- include("partials/errors.ejs") %>
+          <div>
+          <label for="username" class="login-div__form--label">Username</label>
+          <input
+            id="username"
+            name="username"
+            value="<%= formData.username || '' %>"
+            placeholder="username"
+            type="text"
+            required
+            class="login-div__form--input"
+          />
+        </div>
+        
+          <div>
+          <label for="password" class="login-div__form--label">Password</label>
+          <input
+            id="password"
+            name="password"
+            value="<%= formData.password || '' %>"
+            type="password"
+            required
+            class="login-div__form--input"
+          />
+        </div>
+        
+         <div>
+          <label for="confirmPassword" class="login-div__form--label">Confirm Password</label>
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            value="<%= formData.confirmPassword || '' %>"
+            type="password"
+            required
+            class="login-div__form--input"
+          />
+        </div>
+        
+          <button type="submit" class="login-div__form--btn">Sign Up</button>
+        </form>
+        
+        <div class="login-div__signup--div">
+          <h3 class="login-div__signup--h3">
+            Already have an account?
+            <a
+              class="login-div__signup--a"
+              href="/login"
+            >
+              <span
+                class="login-div__signup--a span"
+              >
+                Log In
+              </span>
+            </a>
+          </h3>
+        </div>
+        <!-- Third Party Authentication Options -->
+       
+
+      
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
