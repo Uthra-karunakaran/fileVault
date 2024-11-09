@@ -24,7 +24,7 @@ userRouter.get('/login', userController.getLogin);
 userRouter.post('/login', userController.postLogin);
 
 userRouter.get('/logout', userController.getLogout);
-userRouter.get('/get-started',userController.getStarted)
+userRouter.get('/get-started', userController.getStarted);
 
 userRouter.get('/homeProtected', isAuth, userController.getProtected);
 module.exports = userRouter;

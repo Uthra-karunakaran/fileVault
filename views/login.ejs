@@ -1,90 +1,82 @@
-
 <div class="login-main">
   <div class="login-div">
-  <div class="login-div__grid">
-    <div
-      id="back-div"
-      class="login-div__in"
-    >
-      <div
-        class="login-div__final"
-      >
-        <h1 class="login-div__h1">
-          Log in
-        </h1>
-        <form action="/login" method="POST" class="login-div__form">
-          <% if (messages.error && messages.error.length > 0) { %>
-          <div class="alert ">
-            <% messages.error.forEach(function(msg) { %>
-            <p><%= msg %></p>
-            <% }); %>
-          </div>
-          <% } %>
-      
-          <div>
-          <label for="username" class="login-div__form--label">Username</label>
-          <input
-            id="username"
-            name="username"
-            placeholder="username"
-            type="text"
-            value="<%= formData.username || '' %>"
-            required
-            class="login-div__form--input"
-          />
-        </div>
-        <div>
-        
-          <label for="password" class="login-div__form--label">Password</label>
-          <input id="password" name="password" type="password" required  class="login-div__form--input"/>
-        </div>
-          <button class="login-div__form--btn">Log In</button>
-        </form>
-        <p class="login-text">Or</p>
-        <div>
-          <form action="/login" method="POST">
-            <input
-              style="display: none"
-              id="demo-username"
-              name="username"
-              placeholder="username"
-              type="text"
-              value="demo"
-              required
-            />
-            <input
-              style="display: none"
-              id="demo-password"
-              name="password"
-              type="text"
-              value="Pass@123"
-              required
-            />
-            <button class="login-div__form--btn">Try using demo account</button>
-          </form>
-        </div>
-        <div class="login-div__signup--div">
-          <h3 class="login-div__signup--h3">
-            Don't have an account?
-            <a
-              class="login-div__signup--a"
-              href="/sign-up"
-            >
-              <span
-                class="login-div__signup--a span"
-              >
-                Sign Up
-              </span>
-            </a>
-          </h3>
-        </div>
-        <!-- Third Party Authentication Options -->
-       
+    <div class="login-div__grid">
+      <div id="back-div" class="login-div__in">
+        <div class="login-div__final">
+          <h1 class="login-div__h1">Log in</h1>
+          <form action="/login" method="POST" class="login-div__form">
+            <% if (messages.error && messages.error.length > 0) { %>
+            <div class="alert">
+              <% messages.error.forEach(function(msg) { %>
+              <p><%= msg %></p>
+              <% }); %>
+            </div>
+            <% } %>
 
-      
+            <div>
+              <label for="username" class="login-div__form--label"
+                >Username</label
+              >
+              <input
+                id="username"
+                name="username"
+                placeholder="username"
+                type="text"
+                value="<%= formData.username || '' %>"
+                required
+                class="login-div__form--input"
+              />
+            </div>
+            <div>
+              <label for="password" class="login-div__form--label"
+                >Password</label
+              >
+              <input
+                id="password"
+                name="password"
+                type="password"
+                required
+                class="login-div__form--input"
+              />
+            </div>
+            <button class="login-div__form--btn">Log In</button>
+          </form>
+          <p class="login-text">Or</p>
+          <div>
+            <form action="/login" method="POST">
+              <input
+                style="display: none"
+                id="demo-username"
+                name="username"
+                placeholder="username"
+                type="text"
+                value="demo"
+                required
+              />
+              <input
+                style="display: none"
+                id="demo-password"
+                name="password"
+                type="text"
+                value="Pass@123"
+                required
+              />
+              <button class="login-div__form--btn">
+                Try using demo account
+              </button>
+            </form>
+          </div>
+          <div class="login-div__signup--div">
+            <h3 class="login-div__signup--h3">
+              Don't have an account?
+              <a class="login-div__signup--a" href="/sign-up">
+                <span class="login-div__signup--a span"> Sign Up </span>
+              </a>
+            </h3>
+          </div>
+          <!-- Third Party Authentication Options -->
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </div>
-

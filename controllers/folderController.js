@@ -22,8 +22,16 @@ const validateFile = [
     }
 
     // Check file MIME type
-    const validMimeTypes = ['image/jpeg', 'image/png', 'image/gif','application/msword', 'application/pdf', 
-      'text/plain', 'application/zip', 'image/jpg',];
+    const validMimeTypes = [
+      'image/jpeg',
+      'image/png',
+      'image/gif',
+      'application/msword',
+      'application/pdf',
+      'text/plain',
+      'application/zip',
+      'image/jpg',
+    ];
     if (!validMimeTypes.includes(file.mimetype)) {
       throw new Error(
         'Invalid file type. Only DOC, PDF, TXT, JPG, JPEG, PNG, GIF, and ZIP files are allowed.'

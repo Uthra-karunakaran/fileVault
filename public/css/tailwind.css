@@ -1,72 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
-  @apply font-sans
+* {
+  @apply font-sans;
 }
-
 
 /* <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">We invest in the <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">world’s potential</span></h1> */
 .dropMenu {
   @apply absolute  right-0 z-10 mt-2 w-48 bg-white origin-top-right rounded-lg shadow-lg;
 }
-.alert{
-  @apply border-4 rounded-md border-red-900 p-2 bg-red-300 text-lg font-medium text-red-800
+.alert {
+  @apply border-4 rounded-md border-red-900 p-2 bg-red-300 text-lg font-medium text-red-800;
 }
 .edit-btn {
   @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
 }
 .modalStyle {
   /* @apply fixed bg-neutral-800/50 z-10 inset-0 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[300px] max-h-full */
-  @apply fixed z-10 inset-0 overflow-y-auto bg-neutral-800/50 ;
+  @apply fixed z-10 inset-0 overflow-y-auto bg-neutral-800/50;
 }
 .modalDiv {
-  @apply flex items-center justify-center min-h-screen p-4 ;
+  @apply flex items-center justify-center min-h-screen p-4;
 }
 .modalMainDiv {
   @apply bg-white rounded-lg shadow dark:bg-gray-700 w-96 flex flex-col gap-4
-  /* @apply bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full; */
+  /* @apply bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full; */;
 }
 .modalHeader {
   @apply flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600
-  /* @apply bg-gray-800 text-white px-4 py-3 flex justify-between; */
+  /* @apply bg-gray-800 text-white px-4 py-3 flex justify-between; */;
 }
 .modalFontStyle {
   @apply text-xl font-semibold text-gray-900 dark:text-white;
 }
-.modalCloaseBtn{
-  @apply end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-lg w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white
+.modalCloaseBtn {
+  @apply end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-lg w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white;
 }
 .modalForm--div {
-  @apply p-4 md:p-5 ;
+  @apply p-4 md:p-5;
 }
-.modalForm{
-  @apply space-y-4 flex flex-col gap-2
+.modalForm {
+  @apply space-y-4 flex flex-col gap-2;
 }
 .modalInput {
-  @apply bg-gray-50 border font-normal text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white
+  @apply bg-gray-50 border font-normal text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white;
 }
 .modalLable {
   @apply block mb-2 text-lg font-medium text-gray-900 dark:text-white;
 }
 .modalSubmitBtn {
-  @apply w-20 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+  @apply w-20 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
 }
-.UploadBtn{
-  @apply h-20 border-blue-500
+.UploadBtn {
+  @apply h-20 border-blue-500;
 }
-.fileInput__label{
-  @apply p-3 bg-white text-gray-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif]
+.fileInput__label {
+  @apply p-3 bg-white text-gray-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif];
 }
 /* button{
     @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
 } */
-.modalCancelBtn{
-  @apply py-2.5 px-5 ms-3 text-base font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700
+.modalCancelBtn {
+  @apply py-2.5 px-5 ms-3 text-base font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700;
 }
 
-.file-preview{
-  @apply flex justify-between items-center gap-3.5
+.file-preview {
+  @apply flex justify-between items-center gap-3.5;
 }
 .file-upload__div {
   display: flex;
@@ -74,13 +73,13 @@
   align-items: center;
   gap: 14px;
 }
-.file-upload__p{
- @apply flex text-base font-medium text-black
+.file-upload__p {
+  @apply flex text-base font-medium text-black;
 }
-.file-upload__p--size{
-  @apply text-gray-800
+.file-upload__p--size {
+  @apply text-gray-800;
 }
-.file-upload__img{
+.file-upload__img {
   display: flex;
   flex-wrap: wrap;
   border-radius: 30%;
@@ -106,142 +105,141 @@
 }
 
 .dropdownMenuIconButton {
-  @apply  h-full items-center justify-center rounded-md ;
+  @apply h-full items-center justify-center rounded-md;
 }
 .menu-items {
   @apply block w-full px-4 py-2 text-lg text-gray-700 hover:bg-gray-100;
 }
-.header-class{
-  @apply bg-customRed p-4 text-readableWhite flex md:flex-row justify-between items-start px-8 py-8 flex-wrap 
+.header-class {
+  @apply bg-customRed p-4 text-readableWhite flex md:flex-row justify-between items-start px-8 py-8 flex-wrap;
 }
 
-.body-class{
-  @apply flex-grow flex items-center justify-center bg-gray-50
+.body-class {
+  @apply flex-grow flex items-center justify-center bg-gray-50;
 }
 
-.footer-class{
-  @apply bg-customBlack text-white text-center flex justify-between  p-7 text-lg 
+.footer-class {
+  @apply bg-customBlack text-white text-center flex justify-between  p-7 text-lg;
 }
-.footer-class a{
-  @apply  font-semibold text-white  text-xl hover:text-customRed
+.footer-class a {
+  @apply font-semibold text-white  text-xl hover:text-customRed;
 }
 
-.main{
-  @apply min-h-screen flex flex-col
+.main {
+  @apply min-h-screen flex flex-col;
 }
-.card-a{
-  @apply block max-w-sm p-6 bg-readableWhite border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex flex-col justify-center   items-center
+.card-a {
+  @apply block max-w-sm p-6 bg-readableWhite border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex flex-col justify-center   items-center;
 }
-.card-h5{
-  @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white 
+.card-h5 {
+  @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white;
 }
-.card-p{
-  @apply font-normal text-gray-700 dark:text-gray-400 text-xl text-center
+.card-p {
+  @apply font-normal text-gray-700 dark:text-gray-400 text-xl text-center;
 }
-.cards-div{
-  @apply flex flex-wrap justify-center gap-5
+.cards-div {
+  @apply flex flex-wrap justify-center gap-5;
 }
-.logo-cls{
- @apply  text-lg  mr-6 flex  items-center flex-shrink-0  leading-none tracking-tight text-white md:text-2xl lg:text-4xl dark:text-white  cursor-pointer
+.logo-cls {
+  @apply text-lg  mr-6 flex  items-center flex-shrink-0  leading-none tracking-tight text-white md:text-2xl lg:text-4xl dark:text-white  cursor-pointer;
 }
 /* underline-offset-3  underline  decoration-8 decoration-white*/
-.logo-span{
-  @apply font-semibold
+.logo-span {
+  @apply font-semibold;
 }
-.nav-div{
-  @apply text-2xl  dark:text-white
+.nav-div {
+  @apply text-2xl  dark:text-white;
 }
-.nav-flex{
-  @apply flex gap-4
+.nav-flex {
+  @apply flex gap-4;
 }
 
-.icon{
-  @apply flex items-center gap-2 
+.icon {
+  @apply flex items-center gap-2;
 }
 a.icon {
-  @apply flex items-center gap-2 hover:underline underline-offset-8  decoration-white decoration-4
+  @apply flex items-center gap-2 hover:underline underline-offset-8  decoration-white decoration-4;
 }
-.home-heading{
-  @apply mb-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white
+.home-heading {
+  @apply mb-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white;
 }
-.home-heading span{
-  @apply text-gray-500
+.home-heading span {
+  @apply text-gray-500;
 }
-.home-about{
-  @apply mb-6 text-xl font-normal text-black lg:text-2xl sm:px-16  dark:text-gray-400  max-w-5xl text-center lg:leading-relaxed
+.home-about {
+  @apply mb-6 text-xl font-normal text-black lg:text-2xl sm:px-16  dark:text-gray-400  max-w-5xl text-center lg:leading-relaxed;
 }
 /* max-w-[800px] */
-.home-link{
-  @apply flex items-center gap-2 px-5 py-3 text-xl font-semibold text-center text-white bg-customRed rounded-lg hover:bg-darkPurple transition duration-300
+.home-link {
+  @apply flex items-center gap-2 px-5 py-3 text-xl font-semibold text-center text-white bg-customRed rounded-lg hover:bg-darkPurple transition duration-300;
 }
-.home-div{
-  @apply flex flex-col justify-center items-center gap-2.5 m-4
+.home-div {
+  @apply flex flex-col justify-center items-center gap-2.5 m-4;
 }
-.home-main{
-  @apply flex flex-col justify-center p-4  gap-5
+.home-main {
+  @apply flex flex-col justify-center p-4  gap-5;
 }
-.home-link span{
-  @apply flex 
+.home-link span {
+  @apply flex;
 }
 
 /* login styles */
-.login-page--div{
-  @apply flex flex-col justify-center  items-center
+.login-page--div {
+  @apply flex flex-col justify-center  items-center;
 }
-.login-div--header{
-  @apply text-4xl font-extrabold dark:text-white
+.login-div--header {
+  @apply text-4xl font-extrabold dark:text-white;
 }
-.login-main{
-  @apply flex items-center justify-center
+.login-main {
+  @apply flex items-center justify-center;
 }
-.login-div{
-  @apply w-screen flex justify-center items-center dark:bg-gray-900
+.login-div {
+  @apply w-screen flex justify-center items-center dark:bg-gray-900;
 }
-.login-div__grid{
-  @apply grid gap-8
+.login-div__grid {
+  @apply grid gap-8;
 }
-.login-div__in{
-  @apply bg-gradient-to-r from-blue-500 to-purple-500 rounded-[26px] m-4
+.login-div__in {
+  @apply bg-gradient-to-r from-blue-500 to-purple-500 rounded-[26px] m-4;
 }
-.login-div__final{
-  @apply flex flex-col items-center gap-3 justify-center border-[20px] border-transparent rounded-[20px] dark:bg-gray-900 bg-white shadow-lg xl:p-10 2xl:p-10 lg:p-10 md:p-10 sm:p-2 m-2
+.login-div__final {
+  @apply flex flex-col items-center gap-3 justify-center border-[20px] border-transparent rounded-[20px] dark:bg-gray-900 bg-white shadow-lg xl:p-10 2xl:p-10 lg:p-10 md:p-10 sm:p-2 m-2;
 }
-.login-div__h1{
-  @apply pt-3 pb-5 font-bold dark:text-gray-400 text-5xl text-center cursor-default
+.login-div__h1 {
+  @apply pt-3 pb-5 font-bold dark:text-gray-400 text-5xl text-center cursor-default;
 }
-.login-div__form{
-  @apply space-y-4 gap-3
+.login-div__form {
+  @apply space-y-4 gap-3;
 }
-.login-div__form--label{
-  @apply mb-2  dark:text-gray-400 text-xl
-
+.login-div__form--label {
+  @apply mb-2  dark:text-gray-400 text-xl;
 }
-.login-text{
-  @apply text-lg ms-2 font-semibold text-gray-500 dark:text-gray-400
+.login-text {
+  @apply text-lg ms-2 font-semibold text-gray-500 dark:text-gray-400;
 }
-.login-div__form--input{
-  @apply border p-3 dark:bg-indigo-700 dark:text-gray-300  dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full
+.login-div__form--input {
+  @apply border p-3 dark:bg-indigo-700 dark:text-gray-300  dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full;
 }
-.login-div__form--a{
-  @apply text-blue-400 transition-all duration-100 ease-in-out
+.login-div__form--a {
+  @apply text-blue-400 transition-all duration-100 ease-in-out;
 }
 /* .login-div__form--a span{
   @apply bg-left-bottom bg-gradient-to-r text-sm from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-500 ease-out
 } */
-.login-div__form--btn{
-  @apply bg-gradient-to-r px-4 text-lg dark:text-gray-300 from-blue-500 to-purple-500 shadow-lg p-2 text-white rounded-lg w-full hover:scale-105 hover:from-purple-500 hover:to-blue-500 transition duration-300 ease-in-out
-} 
-.login-div__signup--div{
-  @apply flex flex-col mt-4 items-center justify-center text-lg
+.login-div__form--btn {
+  @apply bg-gradient-to-r px-4 text-lg dark:text-gray-300 from-blue-500 to-purple-500 shadow-lg p-2 text-white rounded-lg w-full hover:scale-105 hover:from-purple-500 hover:to-blue-500 transition duration-300 ease-in-out;
 }
-.login-div__signup--h3{
-  @apply dark:text-gray-300
+.login-div__signup--div {
+  @apply flex flex-col mt-4 items-center justify-center text-lg;
 }
-.login-div__signup--a{
-  @apply text-blue-400 transition-all duration-100 ease-in-out
+.login-div__signup--h3 {
+  @apply dark:text-gray-300;
 }
-.login-div__signup--a span{
-  @apply bg-left-bottom bg-gradient-to-r text-lg from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-500 ease-out
+.login-div__signup--a {
+  @apply text-blue-400 transition-all duration-100 ease-in-out;
+}
+.login-div__signup--a span {
+  @apply bg-left-bottom bg-gradient-to-r text-lg from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-500 ease-out;
 }
 
 /* libray layout styles */
@@ -275,15 +273,15 @@ a.icon {
 }
 
 .library-table-header {
-  @apply text-xl  bg-gray-200 font-medium ;
+  @apply text-xl  bg-gray-200 font-medium;
 }
 
 .library-table-header th {
-  @apply px-4 py-3 text-left text-gray-600 font-medium ;
+  @apply px-4 py-3 text-left text-gray-600 font-medium;
 }
 
 .library-row {
-  @apply text-xl hover:bg-gray-100 cursor-pointer  ;
+  @apply text-xl hover:bg-gray-100 cursor-pointer;
 }
 
 .library-row td {
@@ -291,85 +289,85 @@ a.icon {
 }
 
 .library-link {
-  @apply  text-purple-700 inline-flex  text-xl  hover:underline decoration-purple-700 decoration-solid underline-offset-2 ;
+  @apply text-purple-700 inline-flex  text-xl  hover:underline decoration-purple-700 decoration-solid underline-offset-2;
 }
 
-.lib-link--color{
-  @apply text-purple-700
+.lib-link--color {
+  @apply text-purple-700;
 }
 
-.lib-icon{
-  @apply flex items-center gap-2 
+.lib-icon {
+  @apply flex items-center gap-2;
 }
-.lib-back{
-  @apply text-purple-700 text-xl font-bold
+.lib-back {
+  @apply text-purple-700 text-xl font-bold;
 }
-.lib-drop-btn{
-  @apply inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-4
+.lib-drop-btn {
+  @apply inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-4;
 }
 
 /* file layout style  */
 
-.file-card{
-  @apply w-full py-3.5 md:py-4 lg:py-5 xl:py-6 flex justify-center items-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700
+.file-card {
+  @apply w-full py-3.5 md:py-4 lg:py-5 xl:py-6 flex justify-center items-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700;
 }
-.file-card__div{
-  @apply mt-6 border-t border-gray-100
+.file-card__div {
+  @apply mt-6 border-t border-gray-100;
 }
-.file-card__cover{
-  @apply lg:w-[800px] xl:w-[850px] md:w-[400px] w-72
+.file-card__cover {
+  @apply lg:w-[800px] xl:w-[850px] md:w-[400px] w-72;
 }
-.file-card__div-dl{
-  @apply divide-y divide-violet-300
+.file-card__div-dl {
+  @apply divide-y divide-violet-300;
 }
-.file-card__div-items{
-  @apply max-w-3xl px-4 py-6 grid grid-cols-2 gap-3 md:gap-5 lg:gap-7 xl:gap-9
+.file-card__div-items {
+  @apply max-w-3xl px-4 py-6 grid grid-cols-2 gap-3 md:gap-5 lg:gap-7 xl:gap-9;
 }
-.file-card__div-items--dt{
-  @apply text-base md:text-lg xl:text-xl font-medium text-gray-900 col-span-1
+.file-card__div-items--dt {
+  @apply text-base md:text-lg xl:text-xl font-medium text-gray-900 col-span-1;
 }
-.file-card__div-items--dd{
+.file-card__div-items--dd {
   @apply text-base md:text-lg xl:text-xl text-gray-700 col-span-2 md:col-span-1
-  /* @apply mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0 */
+  /* @apply mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0 */;
 }
 
-.file-card__div-header{
+.file-card__div-header {
   /* @apply xl:px-6 lg:px-5 md:px-4 sm:px-0 */
 }
-.file-card__div-header__h3{
-  @apply text-base/7 md:text-lg lg:text-xl xl:text-2xl font-semibold text-gray-900
+.file-card__div-header__h3 {
+  @apply text-base/7 md:text-lg lg:text-xl xl:text-2xl font-semibold text-gray-900;
 }
-.file-card__div-header__p{
-  @apply mt-1 max-w-2xl text-sm/6  md:text-lg lg:text-xl xl:text-2xl text-gray-500
+.file-card__div-header__p {
+  @apply mt-1 max-w-2xl text-sm/6  md:text-lg lg:text-xl xl:text-2xl text-gray-500;
 }
-.btn-div-style{
-  @apply flex justify-end gap-1 md:gap-20 lg:gap-52 xl:gap-64 
-}
-
-.modal-note{
-  @apply text-gray-600 underline decoration-purple-700 text-lg 
+.btn-div-style {
+  @apply flex justify-end gap-1 md:gap-20 lg:gap-52 xl:gap-64;
 }
 
-.edit-modal__form{
-  @apply flex flex-col gap-3
+.modal-note {
+  @apply text-gray-600 underline decoration-purple-700 text-lg;
 }
 
-.header-hidden{
-  @apply block lg:hidden
-}
-.nav-block{
-  @apply  relative lg:flex lg:justify-end 
-}
-.nav-lg{
-  @apply hidden lg:block
+.edit-modal__form {
+  @apply flex flex-col gap-3;
 }
 
-.nav-block__div{
-  @apply bg-white py-2.5  rounded-lg  absolute right-7 z-10 flex flex-col gap-4  lg:flex-row lg:items-center lg:right-0 lg:bg-customRed lg:py-0
+.header-hidden {
+  @apply block lg:hidden;
 }
-.nav-items-style{
-  @apply w-[180px] px-4 py-2 text-gray-700 flex justify-center items-center text-sm lg:text-white md:text-lg lg:text-2xl xl:text-2xl lg:px-0 lg:py-0 
+.nav-block {
+  @apply relative lg:flex lg:justify-end;
 }
-.clsHidden-nav{
-  @apply hidden
+.nav-lg {
+  @apply hidden lg:block;
+}
+
+.nav-block__div {
+  @apply bg-white py-2.5  rounded-lg  absolute right-7 z-10 flex flex-col gap-4  lg:flex-row lg:items-center lg:right-0 lg:bg-customRed lg:py-0;
+}
+.nav-items-style {
+  @apply w-[180px] px-4 py-2 text-gray-700 flex justify-center items-center text-sm lg:text-white md:text-lg lg:text-2xl xl:text-2xl lg:px-0 lg:py-0;
+}
+.clsHidden-nav {
+  @apply hidden;
 }

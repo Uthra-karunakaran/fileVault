@@ -1001,7 +1001,7 @@ video {
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
-.file-upload__img{
+.file-upload__img {
   display: flex;
   flex-wrap: wrap;
   border-radius: 30%;
@@ -2092,7 +2092,7 @@ a.icon:hover {
   }
 }
 
-.file-card__div-header{
+.file-card__div-header {
   /* @apply xl:px-6 lg:px-5 md:px-4 sm:px-0 */
 }
 

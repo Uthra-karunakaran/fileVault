@@ -68,7 +68,7 @@ exports.UploadFile = asyncHandler(async (libraryid, fileObj, ifDemo) => {
     });
   if (error) {
     console.error('Supabase Upload Error:', error);
-    return 
+    return;
     // return res.status(500).json({ error: 'Error uploading file to Supabase' });
   }
   const fileSize = bytesToKB(fileObj.size);

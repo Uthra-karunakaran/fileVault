@@ -146,15 +146,14 @@ exports.getProtected = asyncHandler(async (req, res) => {
   });
 });
 
-exports.getStarted=asyncHandler(async(req,res)=>{
-  if(req.user){
-    console.log("user loged in here is the info")
+exports.getStarted = asyncHandler(async (req, res) => {
+  if (req.user) {
+    console.log('user loged in here is the info');
     console.log(req.user);
-    res.redirect("/library")
-    return
-  }else{
-   console.log("user not loged in"); 
-   res.redirect("/login")
+    res.redirect('/library');
+    return;
+  } else {
+    console.log('user not loged in');
+    res.redirect('/login');
   }
-  
-})
+});

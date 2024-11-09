@@ -4,16 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-      customRed: '#8f00ff',
-      darkPurple:"#6c00cc",
-      readableWhite: '#FFFFFF',
-      customBlack: '#262626',
-      
+        customRed: '#8f00ff',
+        darkPurple: '#6c00cc',
+        readableWhite: '#FFFFFF',
+        customBlack: '#262626',
+      },
+      maxWidth: {
+        820: '820px',
+      },
     },
-    maxWidth:{
-      '820':'820px',
-    }
-  },
   },
   plugins: [],
 };
