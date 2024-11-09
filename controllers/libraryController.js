@@ -19,14 +19,14 @@ const validateFile = [
       throw new Error('File size should be less than 1MB');
     }
 
-    // Check file MIME type
-    const validMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
-    if (!validMimeTypes.includes(file.mimetype)) {
-      throw new Error(
-        'Invalid file type. Only PNG, JPEG, and GIF are allowed.'
-      );
-    }
-
+   // Check file MIME type
+   const validMimeTypes = ['image/jpeg', 'image/png', 'image/gif','application/msword', 'application/pdf', 
+    'text/plain', 'application/zip', 'image/jpg',];
+  if (!validMimeTypes.includes(file.mimetype)) {
+    throw new Error(
+      'Invalid file type. Only DOC, PDF, TXT, JPG, JPEG, PNG, GIF, and ZIP files are allowed.'
+    );
+  }
     // If no error, return true
     return true;
   }),

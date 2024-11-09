@@ -11,55 +11,6 @@ const passport = require('passport');
 const flash = require('connect-flash');
 
 const mainRouter = require('./routes/mainRouter');
-// const  fs =require('fs');
-// const  path = require('path');
-// const supabaseUrl = 'https://obgelvjksmzziicefptu.supabase.co'
-// const supabaseKey = process.env.SUPABASE_KEY_SERVICE
-// const supabase = createClient(supabaseUrl, supabaseKey)
-
-// Function to upload file
-// async function uploadFile() {
-//   const { data, error } = await supabase
-// .storage
-// .listBuckets()
-// const filePath = path.join(__dirname, 'uploads/git-img.jpg'); // Path to your file
-
-// Read the file into a buffer
-// const avatarFile = fs.readFileSync(filePath); // This will read the entire file into memory
-
-// Upload the file
-// const { data, error } = await supabase
-//   .storage
-//   .from('avatar') // Your bucket name
-//   .upload('public/avatar1.png', avatarFile, {
-//     cacheControl: '3600',
-//     upsert: false
-//   });
-
-// const { data, error } = await supabase
-// .storage
-// .from('avatar')
-// .download( 'public/avatar1.png')
-
-// if (error) {
-//   console.log('Error downloading file:', error);
-
-// } else {
-//   console.log('File download successfully:', data);
-// File uploaded successfully: {
-//   path: 'public/avatar1.png',
-//   id: 'aa6e8ccf-f9e8-4578-84fe-5857f0ba31e5',
-//   fullPath: 'avatar/public/avatar1.png'
-// }
-//   }
-// }
-
-// // Call the upload function
-// uploadFile().then(() => {
-//   console.log("Process finished");
-// }).catch((err) => {
-//   console.error('Error in processing:', err);
-// });
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
