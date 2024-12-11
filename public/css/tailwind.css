@@ -371,3 +371,6 @@ a.icon {
 .clsHidden-nav {
   @apply hidden;
 }
+.radio-btns{
+  @apply flex  items-center gap-3
+}

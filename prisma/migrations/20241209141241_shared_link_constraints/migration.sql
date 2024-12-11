@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "SharedLink" ALTER COLUMN "folderId" DROP NOT NULL,
+ALTER COLUMN "fileId" DROP NOT NULL;
