@@ -255,3 +255,77 @@ exports.DeleteSupabaseFile = asyncHandler(async (path) => {
     console.log('File deleting successfully:', data);
   }
 });
+
+function parseDuration(input) {
+  // console.log(input);
+  const match = input.match(/(\d+)([dhm])/); // Supports days (d), hours (h), minutes (m)
+  if (!match) throw new Error('Invalid duration format');
+
+  const value = parseInt(match[1], 10); // Extract numeric value
+  const unit = match[2]; // Extract unit (d, h, m)
+  console.log("inside parse DUration ",value , unit)
+  switch (unit) {
+    case 'd':
+      console.log("days in parseDuration",value * 24 * 60 * 60 * 1000)
+      return value * 24 * 60 * 60 * 1000; // Convert days to milliseconds
+    case 'h':
+      console.log("hours in parseDuration",value * 60 * 60 * 1000)
+      return value * 60 * 60 * 1000; // Convert hours to milliseconds
+    case 'm':
+      console.log("mintes in parseDuration",value * 60 * 1000)
+      return value * 60 * 1000; // Convert minutes to milliseconds
+    default:
+      throw new Error('Unsupported unit');
+  }
+}
+
+exports.createSharedLink = asyncHandler(async (type , fId, duration) => {
+  // const baseUrl = 'https://filevault2-production.up.railway.app/sharedFolder';
+  // duration formats are 30m , 10h , 1d ,10d
+  const expirationDate = new Date();
+  const milliseconds = parseDuration(duration);
+  console.log("new date",expirationDate)
+  console.log("milliseconds",milliseconds, "exp date" , expirationDate.getTime() + milliseconds)
+  expirationDate.setTime(expirationDate.getTime() + milliseconds);
+  console.log(`Expiration after : ${expirationDate}`);
+  let data="";
+  if (type == "folder"){
+    data = await prisma.sharedLink.create({
+      data: {
+        folderId: fId,
+        expirationDate: expirationDate,
+      },
+    });
+  }else if (type == "file"){
+    data = await prisma.sharedLink.create({
+      data: {
+        fileId: fId,
+        expirationDate: expirationDate,
+      },
+    });
+  }
+  
+
+  return data;
+});
+exports.getSharedFolder = asyncHandler(async (linkId) => {
+  const sharedLink = await prisma.sharedLink.findUnique({
+    where: { id: linkId },
+    include: { folder: true },
+  });
+
+  // console.log(sharedLink);
+  // console.log(sharedLink.folder.id);
+  // console.log(new Date(),sharedLink.expirationDate,new Date() > sharedLink.expirationDate);
+  if (!sharedLink || new Date() > sharedLink.expirationDate) {
+    console.log('link expired');
+    return ;
+    // throw new Error('Link expired or invalid.');
+  }
+  // console.log(sharedLink);
+  console.log("Raw data start")
+  console.log(sharedLink)
+  console.log("Raw data end")
+
+  return sharedLink;
+});

@@ -7,7 +7,7 @@ const { PrismaSessionStore } = require('@quixo3/prisma-session-store');
 const { PrismaClient } = require('@prisma/client');
 const path = require('path');
 const passport = require('passport');
-
+const deleteExpiredLinksCron = require('./deleteExpiredLinks');
 const flash = require('connect-flash');
 
 const mainRouter = require('./routes/mainRouter');
@@ -32,7 +32,7 @@ app.use(
     }),
   })
 );
-
+deleteExpiredLinksCron; // Just import to activate
 require('./passportconfig');
 app.use(passport.session());
 

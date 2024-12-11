@@ -2,6 +2,7 @@ const folderRouter = require('./FolderRouter');
 const fileRouter = require('./FileRouter');
 const libraryRouter = require('./LibraryRouter');
 const userRouter = require('./UserRouter');
+const sharedRouter = require('./SharedRouter');
 
 const mainRouter = require('express').Router();
 const isAuth = (req, res, next) => {
@@ -19,6 +20,7 @@ const isAuth = (req, res, next) => {
 mainRouter.use('/folder', isAuth, folderRouter);
 mainRouter.use('/file', isAuth, fileRouter);
 mainRouter.use('/library', isAuth, libraryRouter);
+mainRouter.use('/share', sharedRouter);
 mainRouter.use(userRouter);
 
 module.exports = mainRouter;

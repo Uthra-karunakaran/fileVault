@@ -1,0 +1,188 @@
+<div class="library-layout">
+    <% if (locals.folderInfo) { %>
+    <div class="">
+      <% if(folderInfo.has_parent_folder && folderInfo.parentFolderId){ %>
+      <a
+        href="/share/view?id=<%= folderInfo.req_id %>&folderid=<%= folderInfo.parentFolderId %>"
+        class="lib-back lib-icon"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="bi bi-arrow-left-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+          />
+        </svg>
+        <%= folderInfo.parentFolder.folderName %>
+      </a>
+      <% } %>
+      
+    </div>
+    <div class="library-header">
+      <h2 class="library-title lib-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="45"
+          height="45"
+          fill="currentColor"
+          class="bi bi-folder2"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5zM2.5 3a.5.5 0 0 0-.5.5V6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3zM14 7H2v5.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5z"
+          />
+        </svg>
+        <%= folderInfo.folderName %>
+      </h2>
+    
+    </div>
+  
+    <table class="library-table">
+      <thead class="library-table-header">
+        <tr>
+          <th>Name</th>
+          <th>Size</th>
+          <th>Created At</th>
+          <th>Last Updated</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody class="library-table-body">
+        <% if(folderInfo.childFolders && folderInfo.childFolders.length>0) { %> <%
+        folderInfo.childFolders.forEach((folder)=>{ %>
+        <tr
+          class="library-row"
+          onclick="window.location.href='/share/view?id=<%= folderInfo.req_id %>&folderid=<%= folder.id%>'"
+        >
+          <td>
+            <a href="/share/view?id=<%= folderInfo.req_id %>&folderid=<%= folder.id %>" class="library-link lib-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-folder2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5zM2.5 3a.5.5 0 0 0-.5.5V6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3zM14 7H2v5.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5z"
+                />
+              </svg>
+              <%= folder.folderName %></a
+            >
+          </td>
+          <td>-</td>
+          <td><%= folder.formattedCreatedAt %></td>
+          <td><%= folder.formattedUpdatedAt %></td>
+          <td class="td-relative">
+            <div class="td-div">
+              <button class="dropdownMenuIconButton lib-drop-btn" type="button">
+                <?xml version="1.0" encoding="iso-8859-1"?>
+                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg
+                  fill="#000000"
+                  height="20px"
+                  width="20px"
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 32.055 32.055"
+                  xml:space="preserve"
+                >
+                  <g>
+                    <path
+                      d="M3.968,12.061C1.775,12.061,0,13.835,0,16.027c0,2.192,1.773,3.967,3.968,3.967c2.189,0,3.966-1.772,3.966-3.967
+                                          C7.934,13.835,6.157,12.061,3.968,12.061z M16.233,12.061c-2.188,0-3.968,1.773-3.968,3.965c0,2.192,1.778,3.967,3.968,3.967
+                                          s3.97-1.772,3.97-3.967C20.201,13.835,18.423,12.061,16.233,12.061z M28.09,12.061c-2.192,0-3.969,1.774-3.969,3.967
+                                          c0,2.19,1.774,3.965,3.969,3.965c2.188,0,3.965-1.772,3.965-3.965S30.278,12.061,28.09,12.061z"
+                    />
+                  </g>
+                </svg>
+              </button>
+              <!-- Dropdown Menu -->
+              <div class="clsHidden dropMenu">
+                <button
+                  class="menu-items lib-icon"
+                >
+                  Author only access
+                </button>
+                
+                
+            </div>
+          </td>
+        </tr>
+        <% })} %> <% if(folderInfo.files && folderInfo.files.length>0) { %> <%
+        folderInfo.files.forEach((file)=>{ %>
+        <tr
+          class="library-row"
+          onclick="window.location.href='/share/view?id=<%= folderInfo.req_id %>&folderid=<%= folderInfo.id %>&fileid=<%= file.id %>'"
+        >
+          <td>
+            <a href="/share/view?id=<%= folderInfo.req_id %>&folderid=<%= folderInfo.id %>&fileid=<%= file.id %>" class="library-link lib-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="27"
+                fill="currentColor"
+                class="bi bi-file-earmark"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"
+                /></svg>
+              <%= file.fileName %></a>
+          </td>
+          <td><%= file.size %> KB</td>
+          <td><%= file.formattedCreatedAt %></td>
+          <td><%= file.formattedUpdatedAt %></td>
+          <td class="td-relative">
+            <div class="td-div">
+              <button class="dropdownMenuIconButton lib-drop-btn" type="button">
+                <?xml version="1.0" encoding="iso-8859-1"?>
+                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg
+                  fill="#000000"
+                  height="20px"
+                  width="20px"
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 32.055 32.055"
+                  xml:space="preserve"
+                >
+                  <g>
+                    <path
+                      d="M3.968,12.061C1.775,12.061,0,13.835,0,16.027c0,2.192,1.773,3.967,3.968,3.967c2.189,0,3.966-1.772,3.966-3.967
+                                          C7.934,13.835,6.157,12.061,3.968,12.061z M16.233,12.061c-2.188,0-3.968,1.773-3.968,3.965c0,2.192,1.778,3.967,3.968,3.967
+                                          s3.97-1.772,3.97-3.967C20.201,13.835,18.423,12.061,16.233,12.061z M28.09,12.061c-2.192,0-3.969,1.774-3.969,3.967
+                                          c0,2.19,1.774,3.965,3.969,3.965c2.188,0,3.965-1.772,3.965-3.965S30.278,12.061,28.09,12.061z"
+                    />
+                  </g>
+                </svg>
+              </button>
+              <!-- Dropdown Menu -->
+               <div class="clsHidden dropMenu">
+                <button
+                  class="menu-items lib-icon"
+                >
+                  Author only access
+                </button>
+ 
+            </div> 
+          </td>
+        </tr>
+        <% }) } %>
+      </tbody>
+    </table>
+  
+    <% } %>
+  </div>
+  

@@ -207,8 +207,74 @@
         </div>
       </div>
     </div>
+    <!--Share Folder Modal -->
+    <div id="sharefolderModal" class="modalStyle clsHidden">
+      <div class="modalDiv">
+        <div class="modalMainDiv">
+          <div class="modalHeader">
+            <h3 class="modalFontStyle" id="share-folder-modal-title">
+              Share Folder
+            </h3>
+            <button
+              class="modalCloaseBtn"
+              onclick="closeModal('sharefolderModal')"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-x"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="modalForm--div">
+            <form class="modalForm" id="share-folder-form" method="POST">
+              <label for="shareDuration" class="modalLable">Duration</label>
+              <div id="shareDurationOptions" class="radio-btns">
+                <!-- Radio button options -->
+                <label>
+                  <input type="radio" name="shareDuration" value="30m" required />
+                  30m
+                </label>
+                <label>
+                  <input type="radio" name="shareDuration" value="1h" required />
+                  1h
+                </label>
+                <label>
+                  <input type="radio" name="shareDuration" value="10h" required />
+                  10h
+                </label>
+                <label>
+                  <input type="radio" name="shareDuration" value="1d" required />
+                  1d
+                </label>
+                <label>
+                  <input type="radio" name="shareDuration" value="10d" required />
+                  10d
+                </label>
+              </div>
+              <div class="mt-4 flex justify-end">
+                <button type="submit" class="library-btn">Share</button>
+                <button
+                  type="button"
+                  onclick="closeModal('sharefolderModal')"
+                  class="modalCancelBtn"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // to remove the err msg when a new file is selected
@@ -354,6 +420,25 @@
         p.style.color = 'red';
         errorDiv.appendChild(p);
       });
+    }
+    function openSharedModel(type , name , fid) {
+      const modal = document.getElementById('sharefolderModal');
+      const form = document.getElementById('share-folder-form');
+      const modalTitle = document.getElementById('share-folder-modal-title');
+      // implement type here to show the folder you are sharing  here 
+      if ( type=='folder'){
+        modalTitle.textContent = `Share Folder ${name}` ;
+        form.action = `/share/folder?id=${fid}`;
+      }else if (type=="file"){
+        modalTitle.textContent = `Share File ${name}`;
+        form.action = `/share/file?id=${fid}`;
+      }
+     
+
+      //   modalTitle.textContent = `Create Folder in ${type}`;
+      //   form.action = `/folder/create-folder/${id}`;
+      // }
+      modal.classList.remove('clsHidden');
     }
 
     function openFolderModal(modalId, type, id) {

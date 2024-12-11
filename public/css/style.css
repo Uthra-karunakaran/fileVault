@@ -2296,3 +2296,9 @@ a.icon:hover {
 .clsHidden-nav {
   display: none;
 }
+
+.radio-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}

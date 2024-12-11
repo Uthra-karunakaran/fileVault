@@ -48,6 +48,7 @@ model Folder {
   parentFolder    Folder?  @relation("ParentChildFolders", fields: [parentFolderId], references: [id]) // Self-relation to the parent folder
   childFolders    Folder[] @relation("ParentChildFolders")   // Relation to child folders
   files           File[]                                    // Relation to files in the folder (one(folder) to many(files))
+  sharedLinks     SharedLink[]                              // Relation to SharedLink
 }
 // remembe the top level folders won't have a parentFolderId 
 // only the nested folders have the parentFolderId
@@ -62,4 +63,16 @@ model File {
   libraryId  Int?
   library    Library? @relation(fields: [libraryId], references: [id])
   size       Float    @default(0.0) // Default size to 0.0
+  sharedLinks     SharedLink[]                              // Relation to SharedLink
 }
+
+model SharedLink {
+  id             String    @id @default(uuid())             // UUID used directly in the link (key)
+  folderId       Int?                                       // Optional Foreign key to the Folder model
+  fileId         Int?                                       // Optional Foreign key to the File model
+  folder         Folder?   @relation(fields: [folderId], references: [id], onDelete: Cascade) // Link associated with a folder
+  file           File?     @relation(fields: [fileId], references: [id], onDelete: Cascade)   // Link associated with a file
+  expirationDate DateTime                                  // Expiration date for the link
+  createdAt      DateTime @default(now())                  // Timestamp when the link is created
+}
+
