@@ -1,65 +1,69 @@
 <div class="library-layout">
-    <% if (locals.sharedData) { %>
-    <div>
-      <% if(sharedData.redirURL){ %>
-      <a href="<%=sharedData.redirURL%>" class="lib-back lib-icon">
+  <% if (locals.sharedData) { %>
+  <div>
+    <% if(sharedData.redirURL){ %>
+    <a href="<%=sharedData.redirURL%>" class="lib-back lib-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-arrow-left-circle"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+        />
+      </svg>
+      Go Back
+    </a>
+    <% } %>
+  </div>
+  <% if(sharedData.sharedLink) { %>
+  <div class="file-card">
+    <div class="file-card__cover">
+      <div class="file-card__div-header">
+        <h3 class="file-card__div-header__h3">Shared Link</h3>
+        <p class="file-card__div-header__p">
+          Copy your shared link here. Note: This link will only be visible once
+          on this page. Make sure to save it before leaving.
+        </p>
+      </div>
+
+      <div class="shared-card file-card__div">
+        <div class="">
+          <!-- <a class="" id="copy_link_board" href="<%=sharedData.sharedLink%>" ><%= sharedData.sharedLink %></a> -->
+          <a
+            id="shared-link"
+            class="shared-link-a"
+            href="<%= sharedData.sharedLink %>"
+            ><%= sharedData.sharedLink %></a
+          >
+        </div>
+        <div></div>
+      </div>
+      <button
+        class="library-btn lib-icon copy-btn"
+        data-clipboard-target="#shared-link"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
+          width="25"
+          height="25"
           fill="currentColor"
-          class="bi bi-arrow-left-circle"
+          class="bi bi-copy"
           viewBox="0 0 16 16"
         >
           <path
             fill-rule="evenodd"
-            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+            d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"
           />
         </svg>
-        Go Back
-      </a>
-      <% } %>
-    
-    </div>
-    <% if(sharedData.sharedLink) { %>
-    <div class="file-card">
-      <div class="file-card__cover">
-        <div class="file-card__div-header">
-          <h3 class="file-card__div-header__h3">Shared Link</h3>
-          <p class="file-card__div-header__p">
-            Copy your shared link here. Note: This link will only be visible once on this page. Make sure to save it before leaving.
-          </p>
-        </div>
+        Copy to Clipboard
+      </button>
 
-        <div class="shared-card file-card__div">
-             <div class="">
-                <!-- <a class="" id="copy_link_board" href="<%=sharedData.sharedLink%>" ><%= sharedData.sharedLink %></a> -->
-                <a id="shared-link" class="shared-link-a " href="<%= sharedData.sharedLink %>"><%= sharedData.sharedLink %></a>
-
-             </div>
-             <div>
-              
-            </div>
-        </div>
-        <button class="library-btn lib-icon copy-btn" data-clipboard-target="#shared-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
-            </svg>
-            Copy to Clipboard
-        </button>
-        
-        <% } %>
-  
-        <% } %>
-      </div>
+      <% } %> <% } %>
     </div>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+</div>

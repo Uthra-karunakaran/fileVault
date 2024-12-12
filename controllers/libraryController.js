@@ -42,7 +42,7 @@ const validateFile = [
 
 exports.getLibrary = asyncHandler(async (req, res) => {
   const library = await queries.getLibData(req.user.libraryId);
-  console.log(library);
+  // console.log(library);
   library.folders.forEach((folder) => {
     let cleanCreatedAt = folder.createdAt.toString().replace(/\s*\(.*\)$/, '');
     let cleanUpdatedAt = folder.updatedAt.toString().replace(/\s*\(.*\)$/, '');
@@ -88,8 +88,8 @@ exports.postUploadFile = [
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    console.log('file obj');
-    console.log(req.file);
+    // console.log('file obj');
+    // console.log(req.file);
     //     file obj
     // {
     //   fieldname: 'avatar',

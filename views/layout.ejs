@@ -240,23 +240,48 @@
               <div id="shareDurationOptions" class="radio-btns">
                 <!-- Radio button options -->
                 <label>
-                  <input type="radio" name="shareDuration" value="30m" required />
+                  <input
+                    type="radio"
+                    name="shareDuration"
+                    value="30m"
+                    required
+                  />
                   30m
                 </label>
                 <label>
-                  <input type="radio" name="shareDuration" value="1h" required />
+                  <input
+                    type="radio"
+                    name="shareDuration"
+                    value="1h"
+                    required
+                  />
                   1h
                 </label>
                 <label>
-                  <input type="radio" name="shareDuration" value="10h" required />
+                  <input
+                    type="radio"
+                    name="shareDuration"
+                    value="10h"
+                    required
+                  />
                   10h
                 </label>
                 <label>
-                  <input type="radio" name="shareDuration" value="1d" required />
+                  <input
+                    type="radio"
+                    name="shareDuration"
+                    value="1d"
+                    required
+                  />
                   1d
                 </label>
                 <label>
-                  <input type="radio" name="shareDuration" value="10d" required />
+                  <input
+                    type="radio"
+                    name="shareDuration"
+                    value="10d"
+                    required
+                  />
                   10d
                 </label>
               </div>
@@ -293,8 +318,8 @@
 
       fileInput.addEventListener('change', function () {
         const file = fileInput.files[0]; // Get the selected file
-        console.log('file-obj-file upload display');
-        console.log(file);
+        // console.log('file-obj-file upload display');
+        // console.log(file);
         if (file) {
           const reader = new FileReader(); // FileReader to display preview
 
@@ -331,10 +356,10 @@
           const formData = new FormData(form);
           // Dynamically retrieve the action attribute
           const actionUrl = form.getAttribute('action');
-          console.log('formData-here');
-          console.log(formData);
-          console.log('action-url');
-          console.log(actionUrl);
+          // console.log('formData-here');
+          // console.log(formData);
+          // console.log('action-url');
+          // console.log(actionUrl);
           try {
             const response = await fetch(actionUrl, {
               method: 'POST',
@@ -415,31 +440,30 @@
 
     const clipboard = new ClipboardJS('.copy-btn');
 
-// Utility function to create a tooltip
-function showTooltip(element, message, type = 'success') {
-  const tooltip = document.createElement('div');
-  tooltip.innerText = message;
-  tooltip.className = `tooltip ${type === 'success' ? 'tooltip-success' : 'tooltip-error'}`;
+    // Utility function to create a tooltip
+    function showTooltip(element, message, type = 'success') {
+      const tooltip = document.createElement('div');
+      tooltip.innerText = message;
+      tooltip.className = `tooltip ${type === 'success' ? 'tooltip-success' : 'tooltip-error'}`;
 
-  // Position the tooltip relative to the button
-  const rect = element.getBoundingClientRect();
-  tooltip.style.left = `${rect.left + window.scrollX + rect.width / 2}px`;
-  tooltip.style.top = `${rect.top + window.scrollY - 30}px`; // Adjust for spacing above the button
+      // Position the tooltip relative to the button
+      const rect = element.getBoundingClientRect();
+      tooltip.style.left = `${rect.left + window.scrollX + rect.width / 2}px`;
+      tooltip.style.top = `${rect.top + window.scrollY - 30}px`; // Adjust for spacing above the button
 
-  document.body.appendChild(tooltip);
+      document.body.appendChild(tooltip);
 
-  // Remove tooltip after 2 seconds
-  setTimeout(() => tooltip.remove(), 2000);
-}
+      // Remove tooltip after 2 seconds
+      setTimeout(() => tooltip.remove(), 2000);
+    }
 
-clipboard.on('success', (e) => {
-  showTooltip(e.trigger, "Copied!");
-});
+    clipboard.on('success', (e) => {
+      showTooltip(e.trigger, 'Copied!');
+    });
 
-clipboard.on('error', (e) => {
-  showTooltip(e.trigger, "Failed to copy", 'error');
-});
-
+    clipboard.on('error', (e) => {
+      showTooltip(e.trigger, 'Failed to copy', 'error');
+    });
 
     function displayErrorMessages(errors) {
       const errorDiv = document.getElementById('errorMessages');
@@ -451,19 +475,18 @@ clipboard.on('error', (e) => {
         errorDiv.appendChild(p);
       });
     }
-    function openSharedModel(type , name , fid) {
+    function openSharedModel(type, name, fid) {
       const modal = document.getElementById('sharefolderModal');
       const form = document.getElementById('share-folder-form');
       const modalTitle = document.getElementById('share-folder-modal-title');
-      // implement type here to show the folder you are sharing  here 
-      if ( type=='folder'){
-        modalTitle.textContent = `Share Folder ${name}` ;
+      // implement type here to show the folder you are sharing  here
+      if (type == 'folder') {
+        modalTitle.textContent = `Share Folder ${name}`;
         form.action = `/share/folder?id=${fid}`;
-      }else if (type=="file"){
+      } else if (type == 'file') {
         modalTitle.textContent = `Share File ${name}`;
         form.action = `/share/file?id=${fid}`;
       }
-     
 
       //   modalTitle.textContent = `Create Folder in ${type}`;
       //   form.action = `/folder/create-folder/${id}`;
@@ -531,7 +554,7 @@ clipboard.on('error', (e) => {
     }
 
     function openEditModal(type, id, name) {
-      console.log('called me');
+      // console.log('called me');
       const modal = document.getElementById('edit-modal');
       const form = document.getElementById('edit-form');
       const nameInput = document.getElementById('editName');
@@ -554,7 +577,7 @@ clipboard.on('error', (e) => {
 
     async function sendDeleteReq(type, id, path) {
       const currentPath = window.location.pathname; // Path only
-      console.log('got the req');
+      // console.log('got the req');
       let url = '';
       if (type === 'folder') {
         url = `/folder/delete/${id}`;
@@ -571,11 +594,11 @@ clipboard.on('error', (e) => {
             throw new Error('Network response was not ok');
           }
 
-          console.log('Success:');
-          console.log('got the req success');
+          // console.log('Success:');
+          // console.log('got the req success');
           window.location.href = currentPath; // Redirect manually
         } catch (error) {
-          console.log('got the req erre');
+          // console.log('got the req erre');
           console.error('Error:', error);
           window.location.href = currentPath; // Redirect manually
         }
