@@ -48,14 +48,14 @@ exports.postEditFolder = asyncHandler(async (req, res) => {
   const { editName } = req.body;
 
   const data = await queries.renameFolder(parseInt(id), editName);
-  console.log(data);
+  // console.log(data);
   res.redirect('/library');
 });
 exports.getViewFolder = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const data = await queries.getFolderInfo(parseInt(id));
-  console.log('look here uthra');
-  console.log(data);
+  // console.log('look here uthra');
+  // console.log(data);
   data.childFolders.forEach((folder) => {
     let cleanCreatedAt = folder.createdAt.toString().replace(/\s*\(.*\)$/, '');
     let cleanUpdatedAt = folder.updatedAt.toString().replace(/\s*\(.*\)$/, '');
@@ -102,8 +102,8 @@ exports.postUploadFolder = [
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    console.log('file obj');
-    console.log(req.file);
+    // console.log('file obj');
+    // console.log(req.file);
     //     file obj
     // {
     //   fieldname: 'avatar',

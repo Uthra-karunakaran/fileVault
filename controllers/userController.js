@@ -15,7 +15,7 @@ const validateUserInputs = [
     .withMessage('Password should at least contain one special character'),
   body('confirmPassword').custom((value, { req }) => {
     if (value !== req.body.password) {
-      console.log(value, req.body.password);
+      // console.log(value, req.body.password);
       throw new Error('confirm Password must match password');
     }
     return true;
@@ -74,7 +74,7 @@ exports.postSignUp = [
       // })
     }
 
-    console.log(req.body);
+    // console.log(req.body);
     const hashedPassword = await genPassword(req.body.password);
 
     await queries.createUser(req.body.username, hashedPassword);
@@ -136,7 +136,7 @@ exports.getLogout = asyncHandler(async (req, res) => {
 // req.flash() are meant to be accessed only once so don't
 // console.log(req.flash()) , it will coz a problem
 exports.getProtected = asyncHandler(async (req, res) => {
-  console.log(req.user);
+  // console.log(req.user);
   res.render('layout.ejs', {
     title: 'Home',
     body: 'home',
@@ -149,7 +149,7 @@ exports.getProtected = asyncHandler(async (req, res) => {
 exports.getStarted = asyncHandler(async (req, res) => {
   if (req.user) {
     console.log('user loged in here is the info');
-    console.log(req.user);
+    // console.log(req.user);
     res.redirect('/library');
     return;
   } else {

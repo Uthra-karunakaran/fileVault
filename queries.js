@@ -138,7 +138,7 @@ exports.getFolderInfo = asyncHandler(async (folderid) => {
     },
   });
 
-  console.log(data);
+  // console.log(data);
 
   return data;
 });
@@ -148,7 +148,7 @@ exports.getFileInfo = asyncHandler(async (fileid) => {
       id: fileid,
     },
   });
-  console.log(data);
+  // console.log(data);
   return data;
 });
 // getFolderInfo(7)
@@ -193,8 +193,8 @@ exports.postUploadChildFile = asyncHandler(
         .json({ error: 'Error uploading file to Supabase' });
     }
     const fileSize = bytesToKB(fileObj.size);
-    console.log('look here');
-    console.log(fileObj);
+    // console.log('look here');
+    // console.log(fileObj);
     const file = await prisma.folder.update({
       where: { id: parentid },
       data: {
@@ -233,7 +233,7 @@ exports.DeleteFile = asyncHandler(async (fileid, path) => {
       id: fileid,
     },
   });
-  console.log(report);
+  // console.log(report);
 });
 
 exports.DownloadFile = asyncHandler(async (path) => {
@@ -263,40 +263,45 @@ function parseDuration(input) {
 
   const value = parseInt(match[1], 10); // Extract numeric value
   const unit = match[2]; // Extract unit (d, h, m)
-  console.log("inside parse DUration ",value , unit)
+  // console.log("inside parse DUration ",value , unit)
   switch (unit) {
     case 'd':
-      console.log("days in parseDuration",value * 24 * 60 * 60 * 1000)
+      // console.log("days in parseDuration",value * 24 * 60 * 60 * 1000)
       return value * 24 * 60 * 60 * 1000; // Convert days to milliseconds
     case 'h':
-      console.log("hours in parseDuration",value * 60 * 60 * 1000)
+      // console.log("hours in parseDuration",value * 60 * 60 * 1000)
       return value * 60 * 60 * 1000; // Convert hours to milliseconds
     case 'm':
-      console.log("mintes in parseDuration",value * 60 * 1000)
+      // console.log("mintes in parseDuration",value * 60 * 1000)
       return value * 60 * 1000; // Convert minutes to milliseconds
     default:
       throw new Error('Unsupported unit');
   }
 }
 
-exports.createSharedLink = asyncHandler(async (type , fId, duration) => {
+exports.createSharedLink = asyncHandler(async (type, fId, duration) => {
   // const baseUrl = 'https://filevault2-production.up.railway.app/sharedFolder';
   // duration formats are 30m , 10h , 1d ,10d
   const expirationDate = new Date();
   const milliseconds = parseDuration(duration);
-  console.log("new date",expirationDate)
-  console.log("milliseconds",milliseconds, "exp date" , expirationDate.getTime() + milliseconds)
+  console.log('new date', expirationDate);
+  console.log(
+    'milliseconds',
+    milliseconds,
+    'exp date',
+    expirationDate.getTime() + milliseconds
+  );
   expirationDate.setTime(expirationDate.getTime() + milliseconds);
   console.log(`Expiration after : ${expirationDate}`);
-  let data="";
-  if (type == "folder"){
+  let data = '';
+  if (type == 'folder') {
     data = await prisma.sharedLink.create({
       data: {
         folderId: fId,
         expirationDate: expirationDate,
       },
     });
-  }else if (type == "file"){
+  } else if (type == 'file') {
     data = await prisma.sharedLink.create({
       data: {
         fileId: fId,
@@ -304,7 +309,6 @@ exports.createSharedLink = asyncHandler(async (type , fId, duration) => {
       },
     });
   }
-  
 
   return data;
 });
@@ -319,13 +323,13 @@ exports.getSharedFolder = asyncHandler(async (linkId) => {
   // console.log(new Date(),sharedLink.expirationDate,new Date() > sharedLink.expirationDate);
   if (!sharedLink || new Date() > sharedLink.expirationDate) {
     console.log('link expired');
-    return ;
+    return;
     // throw new Error('Link expired or invalid.');
   }
   // console.log(sharedLink);
-  console.log("Raw data start")
-  console.log(sharedLink)
-  console.log("Raw data end")
+  // console.log("Raw data start")
+  // console.log(sharedLink)
+  // console.log("Raw data end")
 
   return sharedLink;
 });

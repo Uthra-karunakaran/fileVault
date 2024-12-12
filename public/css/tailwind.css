@@ -371,18 +371,16 @@ a.icon {
 .clsHidden-nav {
   @apply hidden;
 }
-.radio-btns{
-  @apply flex  items-center gap-3
+.radio-btns {
+  @apply flex  items-center gap-3;
 }
 
 .shared-link-a {
-  @apply text-base md:text-lg xl:text-xl font-medium text-gray-900 hover:text-purple-700
+  @apply text-base md:text-lg xl:text-xl font-medium text-gray-900 hover:text-purple-700;
 }
 
-
-
-.shared-card{
-  @apply bg-stone-100 p-2.5 w-full border border-gray-200 rounded-lg shadow mb-5
+.shared-card {
+  @apply bg-stone-100 p-2.5 w-full border border-gray-200 rounded-lg shadow mb-5;
 }
 
 .tooltip {

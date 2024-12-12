@@ -8,7 +8,7 @@ exports.postEditFile = asyncHandler(async (req, res) => {
   const { editName } = req.body;
 
   const data = await queries.renameFile(parseInt(id), editName);
-  console.log(data);
+  // console.log(data);
   res.redirect('/library');
 });
 
