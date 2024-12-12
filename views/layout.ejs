@@ -6,6 +6,7 @@
     <title>FileVault</title>
     <link rel="icon" type="image/png" href="/css/folder.png" />
     <link href="/css/style.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
   </head>
   <body class="main">
     <%- include(headerNav) %>
@@ -410,6 +411,35 @@
           });
       });
     });
+    // copy link to clipboard
+
+    const clipboard = new ClipboardJS('.copy-btn');
+
+// Utility function to create a tooltip
+function showTooltip(element, message, type = 'success') {
+  const tooltip = document.createElement('div');
+  tooltip.innerText = message;
+  tooltip.className = `tooltip ${type === 'success' ? 'tooltip-success' : 'tooltip-error'}`;
+
+  // Position the tooltip relative to the button
+  const rect = element.getBoundingClientRect();
+  tooltip.style.left = `${rect.left + window.scrollX + rect.width / 2}px`;
+  tooltip.style.top = `${rect.top + window.scrollY - 30}px`; // Adjust for spacing above the button
+
+  document.body.appendChild(tooltip);
+
+  // Remove tooltip after 2 seconds
+  setTimeout(() => tooltip.remove(), 2000);
+}
+
+clipboard.on('success', (e) => {
+  showTooltip(e.trigger, "Copied!");
+});
+
+clipboard.on('error', (e) => {
+  showTooltip(e.trigger, "Failed to copy", 'error');
+});
+
 
     function displayErrorMessages(errors) {
       const errorDiv = document.getElementById('errorMessages');

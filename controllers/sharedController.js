@@ -280,21 +280,24 @@ exports.postSharedLinkFolder = asyncHandler(async (req, res) => {
 const baseUrl = process.env.NODE_ENV === 'production' ? baseUrl_prod : baseUrl_local;
 
 // Construct the shared link
-const sharedLink = `${baseUrl}?id=${data.id}`;
+// Construct the shared link
+let shareddata ={}
+shareddata['sharedLink'] = `${baseUrl}?id=${data.id}`;
+shareddata['redirURL'] = `/folder/${id}`;
 
+console.log(shareddata)
 // Send back HTML to render the alert pop-up
-res.send(`
-  <script>
-    const sharedLink = "${sharedLink}";
-    alert("Your link is ready: " + sharedLink);
-    if (confirm("Copy link to clipboard?")) {
-      navigator.clipboard.writeText(sharedLink)
-        .then(() => alert("Link copied!"))
-        .catch(() => alert("Failed to copy link."));
-    }
-    window.location.href = '/folder/${id}'; // Redirect after user interaction
-  </script>
-`);
+res.render('layout.ejs', {
+  title: 'Library',
+  body: 'sharedView.ejs',
+  // messages,
+  // formData,
+  headerNav: 'header',
+  nav: 'nav-auth',
+  username: req.user.username,
+  sharedData: shareddata,
+});
+
 
 });
 
@@ -313,20 +316,21 @@ exports.postSharedLinkFile = asyncHandler(async (req, res) => {
   const baseUrl = process.env.NODE_ENV === 'production' ? baseUrl_prod : baseUrl_local;
   
   // Construct the shared link
-  const sharedLink = `${baseUrl}?id=${data.id}`;
-  
+  let shareddata ={}
+  shareddata['sharedLink'] = `${baseUrl}?id=${data.id}`;
+  shareddata['redirURL'] = `/file/${id}`;
+
+  console.log(shareddata)
   // Send back HTML to render the alert pop-up
-  res.send(`
-    <script>
-      const sharedLink = "${sharedLink}";
-      alert("Your link is ready: " + sharedLink);
-      if (confirm("Copy link to clipboard?")) {
-        navigator.clipboard.writeText(sharedLink)
-          .then(() => alert("Link copied!"))
-          .catch(() => alert("Failed to copy link."));
-      }
-      window.location.href = '/file/${id}'; // Redirect after user interaction
-    </script>
-  `);
+  res.render('layout.ejs', {
+    title: 'Library',
+    body: 'sharedView.ejs',
+    // messages,
+    // formData,
+    headerNav: 'header',
+    nav: 'nav-auth',
+    username: req.user.username,
+    sharedData: shareddata,
+  });
   
   });
